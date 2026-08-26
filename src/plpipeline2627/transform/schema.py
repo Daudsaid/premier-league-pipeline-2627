@@ -42,7 +42,7 @@ class MatchRow(BaseModel):
     @field_validator("date", mode="before")
     @classmethod
     def parse_uk_date(cls, value: str) -> date_type:
-        return datetime.strptime(value, "%d/%m/%Y").date()
+        return datetime.strptime(value, "%d/%m/%Y").date()  # noqa: DTZ007 -- date-only parse, no time/tz component involved
 
     @field_validator("ftr", "htr")
     @classmethod

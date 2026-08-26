@@ -12,7 +12,6 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
-
 # base
 
 class Base(DeclarativeBase):
@@ -79,7 +78,7 @@ class Match(Base):
     home_red_cards: Mapped[int | None]
     away_red_cards: Mapped[int | None]
 
-    odds_quotes: Mapped[list["OddsQuote"]] = relationship(back_populates="match")
+    odds_quotes: Mapped[list[OddsQuote]] = relationship(back_populates="match")
 
     __table_args__ = (
         UniqueConstraint(
@@ -104,7 +103,7 @@ class OddsQuote(Base):
     line: Mapped[float | None] = mapped_column(Numeric(5, 2, asdecimal=False))
     price: Mapped[float] = mapped_column(Numeric(6, 2, asdecimal=False))
 
-    match: Mapped["Match"] = relationship(back_populates="odds_quotes")
+    match: Mapped[Match] = relationship(back_populates="odds_quotes")
 
     __table_args__ = (
         UniqueConstraint(
