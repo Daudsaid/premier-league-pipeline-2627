@@ -1,0 +1,26 @@
+[project]
+name = "plpipeline2627"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "sqlalchemy>=2.0",
+    "pydantic>=2.0",
+    "alembic",
+    "typer",
+    "pandas",
+    "psycopg[binary]",
+    "httpx",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "respx", "ruff", "jupyter", "ipykernel"]
+
+[project.scripts]
+plp2627 = "plpipeline2627.cli:app"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
