@@ -18,7 +18,7 @@ class SeasonConfig:
     @property
     def source_url(self) -> str:
         # f-string interpolates self.season_code and self.competition directly into the URL
-        return f"https://www.football-data.co.uk/mmz4281/{self.season_code}/{self.competition}.csv"
+        return f"https://football-data.co.uk/mmz4281/{self.season_code}/{self.competition}.csv"
 
 
 # this season's config, created once at module-import time

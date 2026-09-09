@@ -10,7 +10,7 @@ class SourceNotAvailableError(Exception):
 
 
 def fetch_csv(season: SeasonConfig) -> bytes:
-    response = httpx.get(season.source_url, timeout=30.0)
+    response = httpx.get(season.source_url, timeout=30.0, follow_redirects=True)
 
     if response.status_code != 200:
         raise SourceNotAvailableError(
