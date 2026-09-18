@@ -7,3 +7,5 @@ __pycache__/
 notebooks/.ipynb_checkpoints/
 data/landed/
 data/landed/
+.venv.nosync/
+.venv

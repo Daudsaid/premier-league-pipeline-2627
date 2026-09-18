@@ -21,6 +21,10 @@ jobs:
       - name: Install project
         run: uv pip install --system ".[dev]"
 
+      - name: Debug source connectivity
+        run: curl -v https://football-data.co.uk/mmz4281/2627/E0.csv -o /dev/null
+        continue-on-error: true
+
       - name: Run pipeline
         run: plp2627 run --season 2627
         env:
